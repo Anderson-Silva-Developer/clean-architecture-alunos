@@ -1,13 +1,11 @@
 package com.anderson;
 
 import com.anderson.entities.Aluno;
-import com.anderson.exception.AlunoAlreadyExistsException;
 import com.anderson.mock.AlunoRepositoryMock;
 import com.anderson.repository.AlunoRepository;
-import com.anderson.validator.AlunoValidator;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CreateAlunoTest {
     private final AlunoRepository alunoRepository = new AlunoRepositoryMock();
