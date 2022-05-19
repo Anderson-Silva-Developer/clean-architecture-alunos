@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.anderson.entities.AlunoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-19T00:17:27" hostname="spider" time="0.136">
+<testsuite name="com.anderson.entities.AlunoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-19T01:35:00" hostname="spider" time="0.124">
   <properties/>
-  <testcase name="create_aluno_ok()" classname="com.anderson.entities.AlunoTest" time="0.136"/>
+  <testcase name="create_aluno_ok()" classname="com.anderson.entities.AlunoTest" time="0.124"/>
   <system-out><![CDATA[Aluno:{id='1', nome='Anderson Silva', matricula='2022xx01'}
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

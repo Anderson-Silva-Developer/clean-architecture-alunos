@@ -9,6 +9,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/adapter" />
+            <option value="$PROJECT_DIR$/config" />
+            <option value="$PROJECT_DIR$/db" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/usecase" />
           </set>

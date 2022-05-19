@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.anderson.CreateAlunoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-19T01:28:44" hostname="spider" time="0.099">
+  <properties/>
+  <testcase name="create()" classname="com.anderson.CreateAlunoTest" time="0.099"/>
+  <system-out><![CDATA[null
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

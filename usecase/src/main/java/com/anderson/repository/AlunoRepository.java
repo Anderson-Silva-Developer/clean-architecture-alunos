@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface AlunoRepository {
 
-    Aluno create(Aluno user);
+    Aluno create(Aluno aluno);
 
     Optional<Aluno> findById(Long id);
 

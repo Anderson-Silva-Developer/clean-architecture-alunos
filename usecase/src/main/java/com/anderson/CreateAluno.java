@@ -5,8 +5,6 @@ import com.anderson.exception.AlunoAlreadyExistsException;
 import com.anderson.repository.AlunoRepository;
 import com.anderson.validator.AlunoValidator;
 
-import java.text.Format;
-
 public class CreateAluno {
     private final AlunoRepository alunoRepository;
 
