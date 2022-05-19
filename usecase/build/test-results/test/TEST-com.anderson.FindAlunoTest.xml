@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.anderson.FindAlunoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-05-19T18:03:44" hostname="spider" time="0.156">
+  <properties/>
+  <testcase name="Teste findAllAlunos, espera-se todos" classname="com.anderson.FindAlunoTest" time="0.119"/>
+  <testcase name="Teste findAllAlunos, espera-se lista vazia" classname="com.anderson.FindAlunoTest" time="0.002"/>
+  <testcase name="Teste findByMatricula não encontrado, espera-se erro" classname="com.anderson.FindAlunoTest" time="0.014"/>
+  <testcase name="Teste findByMatricula, espera-se ok" classname="com.anderson.FindAlunoTest" time="0.003"/>
+  <testcase name="Teste findById não encontrado, espera-se erro" classname="com.anderson.FindAlunoTest" time="0.003"/>
+  <testcase name="Teste findById, espera-se ok" classname="com.anderson.FindAlunoTest" time="0.002"/>
+  <system-out><![CDATA[
+Aluno:{id='1', nome='Aluno 01', matricula='xxxxasas'}
+
+Aluno:{id='2', nome='Aluno 02', matricula='ewewasas'}
+
+Aluno:{id='3', nome='Aluno 03', matricula='ytytasas'}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
