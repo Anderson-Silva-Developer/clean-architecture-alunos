@@ -16,7 +16,7 @@ public class CreateAluno {
         AlunoValidator.validateCreateAluno(aluno);
         if(this.alunoRepository.findByMatricula(aluno.getMatricula()).isPresent()
                 || this.alunoRepository.findById(aluno.getId()).isPresent()){
-            throw new AlunoAlreadyExistsException(" Aluno já existente!");
+            throw new AlunoAlreadyExistsException("O Aluno já existente!");
         }
         return this.alunoRepository.create(aluno);
 
