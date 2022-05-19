@@ -10,8 +10,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/aa" />
             <option value="$PROJECT_DIR$/adapter" />
+            <option value="$PROJECT_DIR$/adapterCLI" />
+            <option value="$PROJECT_DIR$/adapters" />
+            <option value="$PROJECT_DIR$/adapters/adapterCLI" />
             <option value="$PROJECT_DIR$/application" />
+            <option value="$PROJECT_DIR$/application/applicationCLI" />
             <option value="$PROJECT_DIR$/config" />
             <option value="$PROJECT_DIR$/db" />
             <option value="$PROJECT_DIR$/domain" />
