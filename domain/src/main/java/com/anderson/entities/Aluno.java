@@ -63,10 +63,10 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Aluno:{" +
+        return "\nAluno:{" +
                 "id='" + id + '\'' +
                 ", nome='" + nome + '\'' +
-                ", matricula='" + matricula + '\'' +
+                ", matricula='" + matricula +'\'' +
                 '}';
     }
 }

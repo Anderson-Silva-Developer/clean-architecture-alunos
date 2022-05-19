@@ -2,6 +2,7 @@ package com.anderson;
 
 import com.anderson.entities.Aluno;
 import com.anderson.exception.AlunoAlreadyExistsException;
+import com.anderson.exception.AlunoValidationException;
 import com.anderson.repository.AlunoRepository;
 import com.anderson.validator.AlunoValidator;
 
@@ -13,8 +14,9 @@ public class CreateAluno {
     }
     public Aluno create(Aluno aluno ){
         AlunoValidator.validateCreateAluno(aluno);
-        if(this.alunoRepository.findByMatricula(aluno.getMatricula()).isPresent()){
-            throw new AlunoAlreadyExistsException(aluno.getMatricula()+" já existe!");
+        if(this.alunoRepository.findByMatricula(aluno.getMatricula()).isPresent()
+                || this.alunoRepository.findById(aluno.getId()).isPresent()){
+            throw new AlunoAlreadyExistsException(" Aluno já existente!");
         }
         return this.alunoRepository.create(aluno);
 
