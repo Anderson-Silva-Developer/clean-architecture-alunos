@@ -19,10 +19,12 @@ public class Main {
                 .build();
         try {
             CreatealunoMain(aluno, createAluno);
-            FinfByIdAlunoMain(aluno, findAluno);
+            FinfByIdAlunoMain(aluno.getId(), findAluno);
             CreatealunoMain(aluno2, createAluno);
-            FinfByIdAlunoMain(aluno2, findAluno);
+            FinfByIdAlunoMain(aluno2.getId(), findAluno);
             FindAllAlunosMain(findAluno);
+            FinfByIdAlunoMain(20L, findAluno);
+
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
 
@@ -38,9 +40,9 @@ public class Main {
         System.out.println("###################");
     }
 
-    private static void FinfByIdAlunoMain(Aluno aluno, FindAluno findAluno) {
+    private static void FinfByIdAlunoMain(Long id, FindAluno findAluno) {
 //        buscar aluno pelo id
-        var actualFindAluno = findAluno.findById(aluno.getId());
+        var actualFindAluno = findAluno.findById(id);
         System.out.println("buscar aluno pelo id: " + actualFindAluno.get().getNome());
     }
 

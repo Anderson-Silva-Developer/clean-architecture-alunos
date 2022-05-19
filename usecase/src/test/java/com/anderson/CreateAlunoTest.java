@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class CreateAlunoTest {
-    String getErroAluno="O Aluno não deve ser nulo";
-    String getErroAlunoExiste="O Aluno já existente!";
+    String ErroAluno ="O Aluno não deve ser nulo";
+    String ErroAlunoExiste ="O Aluno já existente!";
     String erroId="O Id do Aluno não deve ser nulo";
     String erroNome="O nome do Aluno não deve ser nulo";
     String erroMatricula="A matrícula do Aluno não deve ser nulo";
@@ -39,7 +39,7 @@ class CreateAlunoTest {
         //erro aluno nulo
         this.aluno=null;
         AlunoValidationException exception = assertThrows(AlunoValidationException.class, () -> createAluno.create(aluno));
-        assertEquals(exception.getMessage().equals(getErroAluno),true);
+        assertEquals(exception.getMessage().equals(ErroAluno),true);
 
     }
     @Test
@@ -75,7 +75,7 @@ class CreateAlunoTest {
         aluno.setMatricula("xxxx");
         createAluno.create(aluno);
         AlunoAlreadyExistsException exception = assertThrows(AlunoAlreadyExistsException.class, () -> createAluno.create(aluno));
-        assertEquals(exception.getMessage().equals(getErroAlunoExiste),true);
+        assertEquals(exception.getMessage().equals(ErroAlunoExiste),true);
 
     }
     @Test
@@ -84,7 +84,7 @@ class CreateAlunoTest {
         aluno.setId(2L);
         createAluno.create(aluno);
         AlunoAlreadyExistsException exception = assertThrows(AlunoAlreadyExistsException.class, () -> createAluno.create(aluno));
-        assertEquals(exception.getMessage().equals(getErroAlunoExiste),true);
+        assertEquals(exception.getMessage().equals(ErroAlunoExiste),true);
 
     }
 }

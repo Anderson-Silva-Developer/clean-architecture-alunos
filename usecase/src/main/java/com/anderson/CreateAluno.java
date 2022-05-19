@@ -2,7 +2,6 @@ package com.anderson;
 
 import com.anderson.entities.Aluno;
 import com.anderson.exception.AlunoAlreadyExistsException;
-import com.anderson.exception.AlunoValidationException;
 import com.anderson.repository.AlunoRepository;
 import com.anderson.validator.AlunoValidator;
 

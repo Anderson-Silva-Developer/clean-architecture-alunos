@@ -1,6 +1,7 @@
 package com.anderson;
 
 import com.anderson.entities.Aluno;
+import com.anderson.exception.FindAlunoException;
 import com.anderson.repository.AlunoRepository;
 
 import java.util.List;
@@ -15,12 +16,13 @@ public class FindAluno {
     }
 
     public Optional<Aluno> findById(Long id) {
-        return this.alunoRepository.findById(id);
+        return Optional.ofNullable(this.alunoRepository.findById(id).orElseThrow(() -> new FindAlunoException("Aluno não encontrado")));
+
     }
 
 
     public Optional<Aluno> findByMatricula(String matricula) {
-        return this.alunoRepository.findByMatricula(matricula);
+        return Optional.ofNullable(this.alunoRepository.findByMatricula(matricula).orElseThrow(() -> new FindAlunoException("Aluno não encontrado")));
     }
 
 
