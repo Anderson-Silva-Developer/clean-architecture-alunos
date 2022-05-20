@@ -13,4 +13,8 @@ include 'aa'
 include 'adapterCLI'
 include 'application:applicationCLI'
 findProject(':application:applicationCLI')?.name = 'applicationCLI'
+include 'adapters:adapterSpring'
+findProject(':adapters:adapterSpring')?.name = 'adapterSpring'
+include 'application:applicationSpring'
+findProject(':application:applicationSpring')?.name = 'applicationSpring'
 

@@ -15,8 +15,10 @@
             <option value="$PROJECT_DIR$/adapterCLI" />
             <option value="$PROJECT_DIR$/adapters" />
             <option value="$PROJECT_DIR$/adapters/adapterCLI" />
+            <option value="$PROJECT_DIR$/adapters/adapterSpring" />
             <option value="$PROJECT_DIR$/application" />
             <option value="$PROJECT_DIR$/application/applicationCLI" />
+            <option value="$PROJECT_DIR$/application/applicationSpring" />
             <option value="$PROJECT_DIR$/config" />
             <option value="$PROJECT_DIR$/db" />
             <option value="$PROJECT_DIR$/domain" />
