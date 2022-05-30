@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.anderson.aluno.Create" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-30T18:55:31" hostname="spider" time="1.586">
+  <properties/>
+  <testcase name="create_ok, deve retornar um novo aluno" classname="com.anderson.aluno.Create" time="1.586"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
