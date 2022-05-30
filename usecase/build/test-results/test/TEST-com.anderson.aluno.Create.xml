@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.anderson.aluno.Create" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-05-30T15:14:06" hostname="spider" time="1.626">
+  <properties/>
+  <testcase name="create_aluno_nulo_erro()" classname="com.anderson.aluno.Create" time="1.582"/>
+  <testcase name="create_matricula_nulo_erro()" classname="com.anderson.aluno.Create" time="0.006"/>
+  <testcase name="create_nome_nulo_erro()" classname="com.anderson.aluno.Create" time="0.005"/>
+  <testcase name="create_existente_erro()" classname="com.anderson.aluno.Create" time="0.017"/>
+  <testcase name="create_ok()" classname="com.anderson.aluno.Create" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
