@@ -1,7 +1,7 @@
 package com.anderson.mock;
 
 import com.anderson.entities.Aluno;
-import com.anderson.repository.AlunoRepository;
+import com.anderson.aluno.contract.useCaseRepository.AlunoRepository;
 
 import java.util.*;
 

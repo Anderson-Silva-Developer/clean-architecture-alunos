@@ -1,19 +1,19 @@
 package com.anderson;
 
-import com.anderson.repository.AlunoRepository;
-import com.anderson.repository.AlunoRepositorySpring;
+import com.anderson.aluno.AlunoUsecaseServiceImpl;
+import com.anderson.aluno.contract.useCaseRepository.AlunoRepository;
 
 public class SpringConfig {
 
-    private final AlunoRepository alunoRepository = new AlunoRepositorySpring();
+    private final AlunoRepository alunoRepository;
 
-
-    public CreateAluno createAluno() {
-        return new CreateAluno(alunoRepository);
+    public SpringConfig(AlunoRepository alunoRepository) {
+        this.alunoRepository = alunoRepository;
     }
 
-    public FindAluno findAluno() {
-        return new FindAluno(alunoRepository);
+    public AlunoUsecaseServiceImpl alunoUsecaseServiceImpl(){
+        return new AlunoUsecaseServiceImpl(alunoRepository);
     }
+
 
 }

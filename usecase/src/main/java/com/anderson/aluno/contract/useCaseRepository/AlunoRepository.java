@@ -1,4 +1,4 @@
-package com.anderson.repository;
+package com.anderson.aluno.contract.useCaseRepository;
 
 import com.anderson.entities.Aluno;
 

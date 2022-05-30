@@ -1,9 +1,9 @@
 package com.anderson;
 
 import com.anderson.entities.Aluno;
-import com.anderson.exception.FindAlunoException;
+import com.anderson.aluno.exception.FindAlunoException;
 import com.anderson.mock.AlunoRepositoryMock;
-import com.anderson.repository.AlunoRepository;
+import com.anderson.aluno.contract.useCaseRepository.AlunoRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -4,7 +4,6 @@ import com.anderson.model.AlunoDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/alunos")
@@ -17,7 +16,8 @@ public class SpringAlunoController {
 
     @PostMapping
     public AlunoDTO createAluno(@RequestBody AlunoDTO alunoDTO){
-        return this.alunoController.createAluno(alunoDTO);
+
+        return this.alunoController.create(alunoDTO);
     }
     @GetMapping("/{id}")
     public AlunoDTO findByIdAluno(@PathVariable("id") Long id){
