@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class FindById {
+class findByMatricula {
 
     String erroFindByIdAlunoNaoEncontrado = "Aluno não encontrado";
 
@@ -39,26 +39,25 @@ class FindById {
     }
 
     @Test
-    @DisplayName("findById_ok, deve retornar o aluno do Id 1 ")
-    void findById_ok() {
-        Long id=1L;
-        when(this.alunoUsecaseService.findById(id)).thenReturn(Optional.ofNullable(listAlunos.get(0)));
-        Optional<Aluno> newAluno = this.alunoUsecaseService.findById(id);
+    @DisplayName("findByMatricula_ok, deve retornar o aluno do Id 1 ")
+    void findByMatricula_ok() {
+        String matricula="234kkds";
+        when(this.alunoUsecaseService.findByMatricula(matricula)).thenReturn(Optional.ofNullable(listAlunos.get(0)));
+        Optional<Aluno> newAluno = this.alunoUsecaseService.findByMatricula(matricula);
         assertEquals(Objects.nonNull(newAluno.get()),true);
-        assertEquals(newAluno.get().getId(),id);
+        assertEquals(newAluno.get().getMatricula().equals(matricula),true);
     }
     @Test
-    @DisplayName("findById_nao_econtrado, deve retornar uma exception do tipo FindAlunoException")
-    void findById_nao_encontrado() {
-        Long id=10L;
-        when(this.alunoUsecaseService.findById(id)).thenThrow(new FindAlunoException(erroFindByIdAlunoNaoEncontrado));
-       try {
-           this.alunoUsecaseService.findById(id);
-       }catch (FindAlunoException exception){
-           assertEquals(exception.getClass(),FindAlunoException.class);
-           assertEquals(exception.getMessage(),erroFindByIdAlunoNaoEncontrado);
-       }
+    @DisplayName("findByMatricula_nao_encontrado, deve retornar uma exception do tipo FindAlunoException")
+    void findByMatricula_nao_encontrado() {
+        String matricula="234kkds";
+        when(this.alunoUsecaseService.findByMatricula(matricula)).thenThrow(new FindAlunoException(erroFindByIdAlunoNaoEncontrado));
+        try {
+            this.alunoUsecaseService.findByMatricula(matricula);
+        }catch (FindAlunoException exception){
+            assertEquals(exception.getClass(),FindAlunoException.class);
+            assertEquals(exception.getMessage(),erroFindByIdAlunoNaoEncontrado);
+        }
 
     }
-
-    }
+}
