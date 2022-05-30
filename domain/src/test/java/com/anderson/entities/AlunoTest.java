@@ -1,7 +1,6 @@
 package com.anderson.entities;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class AlunoTest {
@@ -13,6 +12,8 @@ class AlunoTest {
                 .nome("Anderson Silva")
                 .matricula("2022xx01")
                 .build();
+
+        assertTrue(aluno.getId()==1L);
         System.out.println(aluno.toString());
     }
 }
