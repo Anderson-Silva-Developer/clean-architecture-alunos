@@ -5,6 +5,7 @@ import com.anderson.aluno.exception.AlunoAlreadyExistsException;
 import com.anderson.aluno.exception.AlunoValidationException;
 import com.anderson.entities.Aluno;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
 
 class Create {
 
@@ -30,10 +32,9 @@ class Create {
 
     @BeforeEach
     void init() {
-
         alunoRepository = mock(AlunoRepository.class);
         alunoUsecaseService=mock(AlunoUsecaseServiceImpl.class);
-//        alunoUsecaseService = new AlunoUsecaseServiceImpl(alunoRepository);
+
         list = new ArrayList<>(Arrays.asList(
                 new Aluno.AlunoBuilder()
                         .id(1L)
@@ -50,12 +51,14 @@ class Create {
     }
 
     @Test
+    @DisplayName("create_ok, deve retornar um novo aluno")
     void create_ok() {
         when(this.alunoUsecaseService.create(list.get(0))).thenReturn(list.get(0));
         Aluno newAluno = this.alunoUsecaseService.create(list.get(0));
         assertEquals(newAluno, list.get(0));
     }
     @Test
+    @DisplayName("create_existente_erro, deve retornar uma exception do tipo AlunoAlreadyExistsException")
     void create_existente_erro() {
         when(this.alunoRepository.findByMatricula(list.get(0).getMatricula())).thenReturn(Optional.of(list.get(0)));
         when(this.alunoUsecaseService.create(list.get(0))).thenThrow(new AlunoAlreadyExistsException(erroCreateAlunoExistente));
@@ -72,6 +75,7 @@ class Create {
     }
 
     @Test
+    @DisplayName("create_aluno_nulo_erro, deve retornar uma exception do tipo AlunoValidationException")
     void create_aluno_nulo_erro() {
         when(this.alunoUsecaseService.create(null)).thenThrow(new AlunoValidationException(erroCreateAlunoNull));
         try {
@@ -84,6 +88,7 @@ class Create {
         }
     }
     @Test
+    @DisplayName("create_nome_nulo_erro, deve retornar uma exception do tipo AlunoValidationException")
     void create_nome_nulo_erro() {
         Aluno  aluno=list.get(0);
         aluno.setNome("");
@@ -98,6 +103,7 @@ class Create {
         }
     }
     @Test
+    @DisplayName("create_matricula_nulo_erro, deve retornar uma exception do tipo AlunoValidationException")
     void create_matricula_nulo_erro() {
         Aluno  aluno=list.get(0);
         aluno.setMatricula("");

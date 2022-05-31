@@ -41,10 +41,30 @@ public class AlunoEntity {
         this.matricula = matricula;
     }
 
-    public AlunoEntity(String nome, String matricula) {
+    private AlunoEntity(String nome, String matricula) {
         this.nome = nome;
         this.matricula = matricula;
     }
+    public static class AlunoEntityBuilder{
+        private String nome;
+        private String matricula;
+
+        public AlunoEntityBuilder() { }
+
+        public AlunoEntityBuilder nome(String nome) {
+            this.nome=nome;
+            return this;
+        }
+        public AlunoEntityBuilder matricula(String matricula) {
+            this.matricula=matricula;
+            return this;
+        }
+        public AlunoEntity build(){
+            return new AlunoEntity(nome,matricula);
+        }
+
+    }
+
     public  Aluno toAluno(){
         return new Aluno.AlunoBuilder()
                 .id(this.id)
@@ -53,6 +73,9 @@ public class AlunoEntity {
                 .build();
     }
     public  AlunoEntity fromAluno(Aluno aluno){
-        return new AlunoEntity(aluno.getNome(),aluno.getMatricula());
+        return new AlunoEntityBuilder()
+                .nome(aluno.getNome())
+                .matricula(aluno.getMatricula())
+                .build();
     }
 }
