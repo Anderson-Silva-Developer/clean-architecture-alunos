@@ -2,7 +2,7 @@ package com.anderson.model;
 
 import com.anderson.entities.Aluno;
 
-public class AlunoDTO {
+public class AlunoReqDTO {
     private String nome;
     private String matricula;
 
@@ -28,12 +28,5 @@ public class AlunoDTO {
                 .matricula(this.matricula)
                 .build();
     }
-    public static AlunoDTO toAlunoDTO(final Aluno aluno) {
-        var alunoDTO =new AlunoDTO();
-        alunoDTO.setNome(aluno.getNome());
-        alunoDTO.setMatricula(aluno.getMatricula());
-        return alunoDTO;
-    }
-
 
 }

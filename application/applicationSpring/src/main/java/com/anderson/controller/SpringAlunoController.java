@@ -1,6 +1,7 @@
 package com.anderson.controller;
 
-import com.anderson.model.AlunoDTO;
+import com.anderson.model.AlunoReqDTO;
+import com.anderson.model.AlunoRespDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,21 +16,21 @@ public class SpringAlunoController {
     }
 
     @PostMapping
-    public AlunoDTO createAluno(@RequestBody AlunoDTO alunoDTO){
+    public AlunoRespDTO createAluno(@RequestBody AlunoReqDTO alunoDTO){
 
         return this.alunoController.create(alunoDTO);
     }
     @GetMapping("/{id}")
-    public AlunoDTO findByIdAluno(@PathVariable("id") Long id){
+    public AlunoRespDTO findByIdAluno(@PathVariable("id") Long id){
         return this.alunoController.findByIdAluno(id);
 
     }
     @GetMapping("/matricula/{matriculaAluno}")
-    public AlunoDTO findByMatriculaAluno( @PathVariable("matriculaAluno") String matriculaAluno){
+    public AlunoRespDTO findByMatriculaAluno(@PathVariable("matriculaAluno") String matriculaAluno){
         return  this.alunoController.findByMatriculaAluno(matriculaAluno);
     }
     @GetMapping
-    public List<AlunoDTO> findAllAlunos(){
+    public List<AlunoRespDTO> findAllAlunos(){
         return this.alunoController.findAllAlunos();
     }
 }

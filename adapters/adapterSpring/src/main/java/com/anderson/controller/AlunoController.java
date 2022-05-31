@@ -2,7 +2,8 @@ package com.anderson.controller;
 
 
 import com.anderson.aluno.AlunoUsecaseServiceImpl;
-import com.anderson.model.AlunoDTO;
+import com.anderson.model.AlunoReqDTO;
+import com.anderson.model.AlunoRespDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,20 +16,20 @@ public class AlunoController {
         this.alunoUsecaseService = alunoUsecaseService;
     }
 
-    public AlunoDTO create(AlunoDTO alunoDTO){
+    public AlunoRespDTO create(AlunoReqDTO alunoDTO){
         var aluno=alunoDTO.toAluno();
-        return AlunoDTO.toAlunoDTO(this.alunoUsecaseService.create(aluno));
+        return AlunoRespDTO.toAlunoDTO(this.alunoUsecaseService.create(aluno));
     }
-    public AlunoDTO findByIdAluno(Long id){
-        return AlunoDTO.toAlunoDTO(this.alunoUsecaseService.findById(id).get());
+    public AlunoRespDTO findByIdAluno(Long id){
+        return AlunoRespDTO.toAlunoDTO(this.alunoUsecaseService.findById(id).get());
     }
-    public AlunoDTO findByMatriculaAluno(String matricula){
-        return AlunoDTO.toAlunoDTO(this.alunoUsecaseService.findByMatricula(matricula).get());
+    public AlunoRespDTO findByMatriculaAluno(String matricula){
+        return AlunoRespDTO.toAlunoDTO(this.alunoUsecaseService.findByMatricula(matricula).get());
     }
-    public List<AlunoDTO> findAllAlunos(){
+    public List<AlunoRespDTO> findAllAlunos(){
         return this.alunoUsecaseService.findAllAlunos()
                 .stream()
-                .map(AlunoDTO::toAlunoDTO)
+                .map(AlunoRespDTO::toAlunoDTO)
                 .collect(Collectors.toList());
     }
 

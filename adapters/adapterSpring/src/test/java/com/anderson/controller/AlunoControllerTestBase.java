@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.mockito.Mockito.mock;
 
 class AlunoControllerTestBase {
+    String erroFindByIdAlunoNaoEncontrado = "Aluno não encontrado";
     String erroCreateAlunoNull = "O Aluno não deve ser nulo";
     String erroCreateAlunoExistente = "O Aluno já existente!";
     String erroCreateAlunoNomeNull = "O nome do Aluno não deve ser nulo";
