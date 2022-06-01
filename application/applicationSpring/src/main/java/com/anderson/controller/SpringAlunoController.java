@@ -2,6 +2,8 @@ package com.anderson.controller;
 
 import com.anderson.model.AlunoReqDTO;
 import com.anderson.model.AlunoRespDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,21 +18,22 @@ public class SpringAlunoController {
     }
 
     @PostMapping
-    public AlunoRespDTO createAluno(@RequestBody AlunoReqDTO alunoDTO){
+    public ResponseEntity<AlunoRespDTO> createAluno(@RequestBody AlunoReqDTO alunoDTO){
 
-        return this.alunoController.create(alunoDTO);
+        return  ResponseEntity.status(HttpStatus.CREATED).body(this.alunoController.create(alunoDTO));
     }
     @GetMapping("/{id}")
-    public AlunoRespDTO findByIdAluno(@PathVariable("id") Long id){
-        return this.alunoController.findByIdAluno(id);
+    public ResponseEntity<AlunoRespDTO> findByIdAluno(@PathVariable("id") Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(this.alunoController.findByIdAluno(id));
 
     }
     @GetMapping("/matricula/{matriculaAluno}")
-    public AlunoRespDTO findByMatriculaAluno(@PathVariable("matriculaAluno") String matriculaAluno){
-        return  this.alunoController.findByMatriculaAluno(matriculaAluno);
+    public ResponseEntity<AlunoRespDTO> findByMatriculaAluno(@PathVariable("matriculaAluno") String matriculaAluno){
+        return  ResponseEntity.status(HttpStatus.OK).body(this.alunoController.findByMatriculaAluno(matriculaAluno));
     }
     @GetMapping
-    public List<AlunoRespDTO> findAllAlunos(){
-        return this.alunoController.findAllAlunos();
+    public ResponseEntity<List<AlunoRespDTO>> findAllAlunos(){
+
+        return ResponseEntity.status(HttpStatus.OK).body(this.alunoController.findAllAlunos());
     }
 }

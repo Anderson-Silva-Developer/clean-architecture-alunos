@@ -3,11 +3,15 @@ package com.anderson.controller;
 import com.anderson.model.AlunoReqDTO;
 import com.anderson.model.AlunoRespDTO;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.servlet.MockMvc;
 
-import static org.mockito.Mockito.mock;
 
+@WebMvcTest(controllers = SpringAlunoController.class)
 class SpringAlunoControllerTestBase {
+    String urlBase="/alunos";
 
     String erroFindByIdAlunoNaoEncontrado = "Aluno não encontrado";
     String erroCreateAlunoNull = "O Aluno não deve ser nulo";
@@ -15,13 +19,17 @@ class SpringAlunoControllerTestBase {
     String erroCreateAlunoNomeNull = "O nome do Aluno não deve ser nulo";
     String erroCreateAlunoMatriculaNull = "A matrícula do Aluno não deve ser nulo";
 
+    @MockBean
     public AlunoController alunoController;
     public AlunoReqDTO alunoReqDTO;
     public AlunoRespDTO alunoRespDTO;
 
+    @Autowired
+    public MockMvc mockMvc;
+
+
     @BeforeEach
     void init() {
-        alunoController = mock(AlunoController.class);
         alunoReqDTO=new AlunoReqDTO();
         alunoReqDTO.setNome("Aluno 01");
         alunoReqDTO.setMatricula("qwa123456");
@@ -31,7 +39,4 @@ class SpringAlunoControllerTestBase {
         alunoRespDTO.setMatricula("qwa123456");
     }
 
-    @Test
-    void createAluno() {
-    }
 }

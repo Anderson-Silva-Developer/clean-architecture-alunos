@@ -1,5 +1,6 @@
 package com.anderson.controller;
 
+import com.anderson.aluno.exception.AlunoAlreadyExistsException;
 import com.anderson.aluno.exception.AlunoValidationException;
 import com.anderson.model.AlunoRespDTO;
 import org.junit.jupiter.api.DisplayName;
@@ -17,6 +18,21 @@ class CreateTest extends AlunoControllerTestBase{
         AlunoRespDTO alunoRespDTOResult = this.alunoController.create(this.alunoReqDTO);
         assertEquals(alunoRespDTOResult.getId(),1);
     }
+    @Test
+    @DisplayName("create_existente_erro, deve retornar uma exception do tipo AlunoAlreadyExistsException")
+    void create_existente_erro() {
+        when(this.alunoController.create(this.alunoReqDTO)).thenThrow(new AlunoAlreadyExistsException(erroCreateAlunoExistente));
+        try {
+            this.alunoController.create(this.alunoReqDTO);
+
+        }catch (AlunoAlreadyExistsException exception){
+            assertEquals(exception.getClass(), AlunoAlreadyExistsException.class);
+            assertEquals(exception.getMessage(), erroCreateAlunoExistente);
+
+        }
+
+    }
+
     @Test
     @DisplayName("create_nulo_erro, deve retornar uma exception do tipo  AlunoValidationException")
     void create_nulo_erro() {
