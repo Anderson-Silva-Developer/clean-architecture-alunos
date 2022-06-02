@@ -21,6 +21,7 @@ class SpringAlunoControllerTestBase {
 
     @MockBean
     public AlunoController alunoController;
+
     public AlunoReqDTO alunoReqDTO;
     public AlunoRespDTO alunoRespDTO;
 
@@ -30,6 +31,7 @@ class SpringAlunoControllerTestBase {
 
     @BeforeEach
     void init() {
+
         alunoReqDTO=new AlunoReqDTO();
         alunoReqDTO.setNome("Aluno 01");
         alunoReqDTO.setMatricula("qwa123456");
