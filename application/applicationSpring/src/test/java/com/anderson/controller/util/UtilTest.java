@@ -33,18 +33,19 @@ public class UtilTest {
                     .andExpect(status().is(200))
                     .andReturn();
     }
+
     public MvcResult findBy_get404(MockMvc mockMvc, String url, Object object) throws Exception {
         return mockMvc.perform(get(url,object)
                         .contentType("application/json"))
                 .andExpect(status().is(404))
                 .andReturn();
     }
-    public MvcResult generic_post400(MockMvc mockMvc, String url, AlunoReqDTO  alunoReqDTO) throws Exception {
-        return mockMvc.perform(post(url)
-                        .contentType("application/json")
-                        .content(objectMapper.writeValueAsString(alunoReqDTO)))
-                .andExpect(status().is(400))
+    public MvcResult findAllAlunos_get200(MockMvc mockMvc, String url) throws Exception {
+        return mockMvc.perform(get(url)
+                        .contentType("application/json"))
+                .andExpect(status().is(200))
                 .andReturn();
     }
+
 
 }
