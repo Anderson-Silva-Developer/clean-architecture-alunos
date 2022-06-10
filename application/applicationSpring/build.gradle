@@ -23,6 +23,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation("org.postgresql:postgresql:42.3.6")
     testImplementation("io.rest-assured:spring-mock-mvc:5.1.0")
+    implementation("org.junit.platform:junit-platform-suite:1.8.1")
 
 
 }
