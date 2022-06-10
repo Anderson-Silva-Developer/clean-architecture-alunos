@@ -27,13 +27,13 @@ public class UtilTest {
                 .andReturn();
 
     }
-    public MvcResult generic_get200(MockMvc mockMvc, String url, Object object) throws Exception {
+    public MvcResult findBy_get200(MockMvc mockMvc, String url, Object object) throws Exception {
             return mockMvc.perform(get(url,object)
                             .contentType("application/json"))
                     .andExpect(status().is(200))
                     .andReturn();
     }
-    public MvcResult generic_get404(MockMvc mockMvc, String url, Object object) throws Exception {
+    public MvcResult findBy_get404(MockMvc mockMvc, String url, Object object) throws Exception {
         return mockMvc.perform(get(url,object)
                         .contentType("application/json"))
                 .andExpect(status().is(404))

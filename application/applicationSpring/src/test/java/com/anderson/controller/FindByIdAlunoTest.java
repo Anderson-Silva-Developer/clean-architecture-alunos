@@ -18,23 +18,24 @@ class FindByIdAlunoTest extends SpringAlunoControllerTestBase{
     void findByIdAluno_ok() throws Exception {
         Long id=1L;
         Mockito.when(this.alunoController.findByIdAluno(id)).thenReturn(this.alunoRespDTO);
-        MvcResult mvcResult = new UtilTest().generic_get200(mockMvc,urlBase+"/{id}",id);
+        MvcResult mvcResult = new UtilTest().findBy_get200(mockMvc,urlBase+"/{id}",id);
         AlunoRespDTO alunoRespDTOResult = this.alunoController.findByIdAluno(id);
         assertTrue(alunoRespDTOResult==this.alunoRespDTO);
         assertEquals(mvcResult.getResponse().getStatus(), 200);
     }
     @Test
-    @DisplayName("findByIdAluno_nao_encontrado_erro, deve retornar uma exception do tipo FindAlunoException")
+    @DisplayName("findByIdAluno_nao_encontrado_erro, deve retornar uma exception do tipo FindAlunoException e status 404")
     void findByIdAluno_nao_encontrado_erro() throws Exception {
         Long id=1L;
         Mockito.when(this.alunoController.findByIdAluno(id)).thenThrow(new FindAlunoException(erroFindByIdAlunoNaoEncontrado));
-        MvcResult mvcResult =new UtilTest().generic_get404(mockMvc,urlBase+"/{id}",id);
+        MvcResult mvcResult =new UtilTest().findBy_get404(mockMvc,urlBase+"/{id}",id);
         try {
             this.alunoController.findByIdAluno(id);
 
         }catch (FindAlunoException exception){
             System.out.println(exception.getMessage());
             assertEquals(exception.getMessage(),erroFindByIdAlunoNaoEncontrado);
+            assertEquals(mvcResult.getResponse().getStatus(), 404);
         }
 
     }
