@@ -26,9 +26,9 @@ class FindByIdAlunoTest extends SpringAlunoControllerTestBase{
     @Test
     @DisplayName("findByIdAluno_nao_encontrado_erro, deve retornar uma exception do tipo FindAlunoException")
     void findByIdAluno_nao_encontrado_erro() throws Exception {
-        Long id=110L;
+        Long id=1L;
         Mockito.when(this.alunoController.findByIdAluno(id)).thenThrow(new FindAlunoException(erroFindByIdAlunoNaoEncontrado));
-        MvcResult mvcResult =new UtilTest().generic_get200(mockMvc,urlBase+"/{id}",id);
+        MvcResult mvcResult =new UtilTest().generic_get404(mockMvc,urlBase+"/{id}",id);
         try {
             this.alunoController.findByIdAluno(id);
 
