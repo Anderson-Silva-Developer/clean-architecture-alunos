@@ -25,7 +25,7 @@ class CreateAlunoTest extends SpringAlunoControllerTestBase{
         assertEquals(mvcResult.getResponse().getStatus(), 201);
     }
     @Test
-    @DisplayName("createAluno_Aluno_existente_erro, deve retornar uma exception do tipo AlunoAlreadyExistsException")
+    @DisplayName("createAluno_Aluno_existente_erro, deve retornar uma exception do tipo AlunoAlreadyExistsException e status 400")
     void createAluno_Aluno_existente_erro() throws Exception {
         Mockito.when(this.alunoController.create(any()))
                 .thenThrow(new AlunoAlreadyExistsException(erroCreateAlunoExistente));
@@ -38,7 +38,7 @@ class CreateAlunoTest extends SpringAlunoControllerTestBase{
         }
     }
     @Test
-    @DisplayName("createAluno_Aluno_nulo_erro, deve retornar uma exception do tipo AlunoValidationException")
+    @DisplayName("createAluno_Aluno_nulo_erro, deve retornar uma exception do tipo AlunoValidationException e status 400")
     void createAluno_Aluno_nulo_erro() throws Exception {
         Mockito.when(this.alunoController.create(null))
                 .thenThrow(new AlunoValidationException(erroCreateAlunoNull));
@@ -53,7 +53,7 @@ class CreateAlunoTest extends SpringAlunoControllerTestBase{
         }
     }
     @Test
-    @DisplayName("createAluno_nome_nulo_erro, deve retornar uma exception do tipo AlunoValidationException")
+    @DisplayName("createAluno_nome_nulo_erro, deve retornar uma exception do tipo AlunoValidationException e status 400")
     void createAluno_nome_nulo_erro() throws Exception {
         this.alunoReqDTO.setNome("");
         Mockito.when(this.alunoController.create(any()))
@@ -69,7 +69,7 @@ class CreateAlunoTest extends SpringAlunoControllerTestBase{
 
     }
     @Test
-    @DisplayName("createAluno_matricula_nula_erro, deve retornar uma exception do tipo AlunoValidationException")
+    @DisplayName("createAluno_matricula_nula_erro, deve retornar uma exception do tipo AlunoValidationException e status 400")
     void createAluno_matricula_nula_erro() throws Exception {
         this.alunoReqDTO.setMatricula("");
         Mockito.when(this.alunoController.create(any()))
