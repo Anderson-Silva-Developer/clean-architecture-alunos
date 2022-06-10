@@ -39,5 +39,12 @@ public class AlunoRespDTO {
         return alunoDTO;
     }
 
-
+    @Override
+    public String toString() {
+        return "\nAluno:{" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", matricula='" + matricula +'\'' +
+                '}';
+    }
 }

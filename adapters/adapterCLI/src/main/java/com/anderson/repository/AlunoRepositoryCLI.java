@@ -1,11 +1,14 @@
-package com.anderson;
+package com.anderson.repository;
 
-import com.anderson.entities.Aluno;
 import com.anderson.aluno.contract.useCaseRepository.AlunoRepository;
+import com.anderson.entities.Aluno;
 
 import java.util.*;
 
 public class AlunoRepositoryCLI implements AlunoRepository {
+
+    AlunoDAOCLI alunoDAOCLI=new AlunoDAOCLI();
+
     private final Map<Object, Aluno> inMemoryDb = new HashMap<>();
     @Override
     public Aluno create(Aluno aluno) {
@@ -27,6 +30,6 @@ public class AlunoRepositoryCLI implements AlunoRepository {
 
     @Override
     public List<Aluno> findAllAlunos() {
-        return new ArrayList<Aluno>(this.inMemoryDb.values());
+        return alunoDAOCLI.getAllAlunos();
     }
 }
