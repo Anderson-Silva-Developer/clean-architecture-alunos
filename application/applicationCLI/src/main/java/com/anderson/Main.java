@@ -11,19 +11,19 @@ public class Main {
         var alunoInput=new AlunoInput(config.alunoUsecaseServiceImpl());
 
         AlunoReqDTO alunoReqDTO = new AlunoReqDTO();
-        alunoReqDTO.setNome("Aluno 01");
-        alunoReqDTO.setMatricula("2022xx01");
+        alunoReqDTO.setNome("Aluno 09 main");
+        alunoReqDTO.setMatricula("2022xx04fgj95849mbm");
         AlunoReqDTO alunoReqDTO2 = new AlunoReqDTO();
-        alunoReqDTO2.setNome("Aluno 02");
-        alunoReqDTO2.setMatricula("2022xx02");
+        alunoReqDTO2.setNome("Aluno 10 main");
+        alunoReqDTO2.setMatricula("2022xx05gfglg8695895vbf");
 
         try {
-//            AlunoRespDTO newaluno = CreatealunoMain(alunoReqDTO, alunoInput);
-//            FinfByIdAlunoMain(newaluno.getId(),alunoInput);
-//            AlunoRespDTO newaluno2 = CreatealunoMain(alunoReqDTO2,alunoInput);
-//            FinfByIdAlunoMain(newaluno2.getId(),alunoInput);
+            AlunoRespDTO newaluno = CreatealunoMain(alunoReqDTO, alunoInput);
+            FinfByIdAlunoMain(newaluno.getId(),alunoInput);
+            AlunoRespDTO newaluno2 = CreatealunoMain(alunoReqDTO2,alunoInput);
+            FinfByIdAlunoMain(newaluno2.getId(),alunoInput);
             FindAllAlunosMain(alunoInput);
-//            FinfByIdAlunoMain(20L, alunoInput);
+            FinfByIdAlunoMain(200L, alunoInput);
 
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());

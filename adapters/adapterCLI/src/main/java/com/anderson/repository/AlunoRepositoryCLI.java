@@ -3,33 +3,34 @@ package com.anderson.repository;
 import com.anderson.aluno.contract.useCaseRepository.AlunoRepository;
 import com.anderson.entities.Aluno;
 
+import java.sql.SQLException;
 import java.util.*;
 
 public class AlunoRepositoryCLI implements AlunoRepository {
 
     AlunoDAOCLI alunoDAOCLI=new AlunoDAOCLI();
-
-    private final Map<Object, Aluno> inMemoryDb = new HashMap<>();
     @Override
     public Aluno create(Aluno aluno) {
-        this.inMemoryDb.put(aluno.getId(),aluno);
-        return aluno;
+        return alunoDAOCLI.createAluno(aluno);
     }
 
     @Override
     public Optional<Aluno> findById(Long id) {
-        return Optional.ofNullable(this.inMemoryDb.get(id));
+        return Optional.ofNullable(alunoDAOCLI.findByIdAluno(id));
     }
 
     @Override
     public Optional<Aluno> findByMatricula(String matricula) {
-        return this.inMemoryDb.values().stream()
-                .filter(aluno -> aluno.getMatricula().equals(matricula))
-                .findAny();
+
+        return Optional.ofNullable(alunoDAOCLI.findByMatriculaAluno(matricula));
     }
 
     @Override
     public List<Aluno> findAllAlunos() {
-        return alunoDAOCLI.getAllAlunos();
+        try {
+            return alunoDAOCLI.getAllAlunos();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

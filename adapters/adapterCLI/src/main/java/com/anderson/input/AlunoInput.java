@@ -4,7 +4,6 @@ import com.anderson.aluno.AlunoUsecaseServiceImpl;
 import com.anderson.model.AlunoReqDTO;
 import com.anderson.model.AlunoRespDTO;
 
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,7 +17,6 @@ public class AlunoInput {
 
     public AlunoRespDTO create(AlunoReqDTO alunoDTO){
         var aluno=alunoDTO.toAluno();
-        aluno.setId(new Date().getTime());
         return AlunoRespDTO.toAlunoDTO(this.alunoUsecaseService.create(aluno));
     }
     public AlunoRespDTO findByIdAluno(Long id){
